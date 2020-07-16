@@ -91,6 +91,7 @@ B1RunAction::B1RunAction()
   analysisManager->CreateNtupleDColumn("pdir_y");
   analysisManager->CreateNtupleDColumn("pdir_z");
   analysisManager->CreateNtupleSColumn("pid");
+  analysisManager->CreateNtupleSColumn("poststep_pid");
   analysisManager->CreateNtupleDColumn("inTarget");
   analysisManager->FinishNtuple();
 }

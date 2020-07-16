@@ -89,7 +89,7 @@ void B1SteppingAction::UserSteppingAction(const G4Step* step)
   for( size_t lp=0; lp < (*secondary).size(); lp++ )
   {
     analysisManager->FillNtupleSColumn(0, step->GetPostStepPoint()->GetProcessDefinedStep()->GetProcessName());
-    analysisManager->FillNtupleDColumn(1, (G4double)(*secondary)[lp]->GetTotalEnergy()/CLHEP::keV);
+    analysisManager->FillNtupleDColumn(1, (G4double)(*secondary)[lp]->GetTotalEnergy()/CLHEP::GeV);
     analysisManager->FillNtupleDColumn(2, (G4double)(*secondary)[lp]->GetPosition().getX());
     analysisManager->FillNtupleDColumn(3, (G4double)(*secondary)[lp]->GetPosition().getY());
     analysisManager->FillNtupleDColumn(4, (G4double)(*secondary)[lp]->GetPosition().getZ());
@@ -100,7 +100,8 @@ void B1SteppingAction::UserSteppingAction(const G4Step* step)
     analysisManager->FillNtupleDColumn(9, (G4double)(*secondary)[lp]->GetMomentumDirection().getY());
     analysisManager->FillNtupleDColumn(10, (G4double)(*secondary)[lp]->GetMomentumDirection().getZ());
     analysisManager->FillNtupleSColumn(11, (*secondary)[lp]->GetDefinition()->GetParticleName() );
-    analysisManager->FillNtupleDColumn(12, (volume == fScoringVolume?1:0));
+    analysisManager->FillNtupleSColumn(12, step->GetPostStepPoint()->GetParticleName());
+    analysisManager->FillNtupleDColumn(13, (volume == fScoringVolume?1:0));
     analysisManager->AddNtupleRow();
   }
 }
