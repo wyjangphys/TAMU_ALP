@@ -100,7 +100,7 @@ void B1SteppingAction::UserSteppingAction(const G4Step* step)
     analysisManager->FillNtupleDColumn(9, (G4double)(*secondary)[lp]->GetMomentumDirection().getY());
     analysisManager->FillNtupleDColumn(10, (G4double)(*secondary)[lp]->GetMomentumDirection().getZ());
     analysisManager->FillNtupleSColumn(11, (*secondary)[lp]->GetDefinition()->GetParticleName() );
-    analysisManager->FillNtupleSColumn(12, step->GetPostStepPoint()->GetParticleName());
+    analysisManager->FillNtupleSColumn(12, step->GetTrack()->GetParticleDefinition()->GetParticleName());
     analysisManager->FillNtupleDColumn(13, (volume == fScoringVolume?1:0));
     analysisManager->AddNtupleRow();
   }

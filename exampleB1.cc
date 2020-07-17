@@ -25,7 +25,7 @@
 //
 //
 /// \file exampleB1.cc
-/// \brief Main program of the B1 example
+/// \brief Main function of the B1 example
 
 #include "B1DetectorConstruction.hh"
 #include "B1ActionInitialization.hh"
